@@ -28,6 +28,15 @@ public class SwaggerConfig{
                 .externalDocs(new ExternalDocumentation().description("GitHub")
                         .url("https://github.com/joao295/MeuBlogPessoal/"));
     }
+    
+    
+    private ApiResponse createApiResponse(String message) {
+        return new ApiResponse().description(message);
+    }
+
+
+    
+  
 
 @Bean
     public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
@@ -47,7 +56,4 @@ public class SwaggerConfig{
         };
     }
 
-    private ApiResponse createApiResponse(String message) {
-        return new ApiResponse().description(message);
-    }
 }

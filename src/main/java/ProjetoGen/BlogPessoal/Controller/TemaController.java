@@ -3,6 +3,8 @@ package ProjetoGen.BlogPessoal.Controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -58,14 +60,14 @@ return repository.findAllByDescricaoContainingIgnoreCase(descricao);
 
 
 @PostMapping
-public Tema post (@RequestBody Tema tema ){
+public Tema post (@Valid @RequestBody Tema tema ){
 return repository.save(tema);
 	  
 	
 }
 
 @PutMapping
-public Tema put (@RequestBody Tema tema ){
+public Tema put (@Valid @RequestBody Tema tema ){
 return repository.save(tema);
 	  
 }

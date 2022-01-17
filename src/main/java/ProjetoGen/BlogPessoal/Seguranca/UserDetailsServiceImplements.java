@@ -13,17 +13,19 @@ import ProjetoGen.BlogPessoal.Repository.UsuarioRepository;
 
 @Service
 public class UserDetailsServiceImplements implements UserDetailsService {
+	
 	private @Autowired UsuarioRepository repository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	
 		Optional<Usuario> optional = repository.findByUsuario(username);
 		
 		if (optional.isPresent()) {
 			return new UserDetailsImplements (optional.get());
 
 		} else {
-			throw new UsernameNotFoundException(username + " not found.");
+			throw new UsernameNotFoundException(username + "Usuario não existe");
 		}
 
 	}

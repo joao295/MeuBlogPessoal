@@ -2,6 +2,8 @@ package ProjetoGen.BlogPessoal.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,7 +21,9 @@ import ProjetoGen.BlogPessoal.Repository.PostagemRepository;
 
 @RestController
 @RequestMapping("/postagem")
-@CrossOrigin(origins = "*")
+
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+
 public class PostagemController {
 	
 	
@@ -52,14 +56,14 @@ return repository.findAllByTituloContainingIgnoreCase(titulo);
 }
 	
 @PostMapping
-public Postagem post (@RequestBody Postagem postagem ){
+public Postagem post (@Valid @RequestBody Postagem postagem ){
 return repository.save(postagem);
 	  
 	
 }
 
 @PutMapping
-public Postagem put (@RequestBody Postagem postagem ){
+public Postagem put (@Valid @RequestBody Postagem postagem ){
 return repository.save(postagem);
 	  
 }
