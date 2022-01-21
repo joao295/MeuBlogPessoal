@@ -49,7 +49,7 @@ public class UsuarioController {
 	
 	}
 	
-	@PostMapping("/logar")
+	@PostMapping("/entrar")
 	public ResponseEntity<UsuarioLogin> autenticationUsuario(@RequestBody Optional<UsuarioLogin> usuario) {
 
 		return service.logarUsuario(usuario).map(resp -> ResponseEntity.ok(resp))

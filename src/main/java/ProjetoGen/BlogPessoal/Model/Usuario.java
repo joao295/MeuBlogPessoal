@@ -41,7 +41,7 @@ private String usuario;
 
 	
 @NotBlank
-@Size(min = 8, message = "A senha deve ter no minimo 8 caracteres")
+@Size(min = 3, message = "A senha deve ter no minimo 8 caracteres")
 private String senha;
 
 private String tipo;
@@ -57,7 +57,6 @@ public Usuario (long id, String nome, String usuario, String senha) {
 	
 	this.id = id;
 	this.nome = nome;
-	this.foto = foto;
 	this.usuario = usuario;
 
 }
