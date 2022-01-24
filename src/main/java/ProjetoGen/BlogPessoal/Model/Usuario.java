@@ -41,8 +41,10 @@ private String usuario;
 
 	
 @NotBlank
-@Size(min = 8, message = "A senha deve ter no minimo 8 caracteres")
+@Size(min = 3, message = "A senha deve ter no minimo 8 caracteres")
 private String senha;
+
+private String tipo;
 
 
 @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
@@ -56,8 +58,7 @@ public Usuario (long id, String nome, String usuario, String senha) {
 	this.id = id;
 	this.nome = nome;
 	this.usuario = usuario;
-	this.senha = senha;
-	
+
 }
 
 
@@ -134,6 +135,16 @@ public List<Postagem> getPostagem() {
 
 public void setPostagem(List<Postagem> postagem) {
 	this.postagem = postagem;
+}
+
+
+public String getTipo() {
+	return tipo;
+}
+
+
+public void setTipo(String tipo) {
+	this.tipo = tipo;
 }
 
 

@@ -14,6 +14,7 @@ public class UsuarioLogin {
 
 	private String token;
 
+	private String tipo;
 	
 	public String getNome() {
 		return nome;
@@ -63,4 +64,14 @@ public class UsuarioLogin {
 		this.nome = nome;
 	}
 
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	
+	
 }
