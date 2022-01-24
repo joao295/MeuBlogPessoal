@@ -49,19 +49,24 @@ public class UsuarioController {
 	
 	}
 	
-	@PostMapping("/entrar")
-	public ResponseEntity<UsuarioLogin> autenticationUsuario(@RequestBody Optional<UsuarioLogin> usuario) {
+	
+	@PostMapping("/cadastrar")
+	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
+		return service.cadastrarUsuario(usuario).map(resp -> ResponseEntity.status(HttpStatus.CREATED).body(resp))
+				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
+	}
+	
+	
+	
+	@PostMapping("/logar")
+	public ResponseEntity<UsuarioLogin> autenticationUsuario( @Valid @RequestBody Optional<UsuarioLogin> usuario) {
 
 		return service.logarUsuario(usuario).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 
 	}
 
-	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> postUsuario(@Valid @RequestBody Usuario usuario) {
-		return service.cadastrarUsuario(usuario).map(resp -> ResponseEntity.status(HttpStatus.CREATED).body(resp))
-				.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
-	}
+	
 
 	@PutMapping("/atualizar")
 	public ResponseEntity<Usuario> put (@Valid @RequestBody Usuario usuario) {
