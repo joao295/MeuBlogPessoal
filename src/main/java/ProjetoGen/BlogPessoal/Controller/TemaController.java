@@ -21,7 +21,7 @@ import ProjetoGen.BlogPessoal.Repository.TemaRepository;
 
 @RestController
 @RequestMapping("/tema")
-@CrossOrigin (origins = "*", allowedHeaders = "")
+@CrossOrigin (origins = "*", allowedHeaders = "*")
 
 
 
