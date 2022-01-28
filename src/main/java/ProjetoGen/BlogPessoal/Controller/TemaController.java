@@ -75,7 +75,7 @@ return repository.save(tema);
 
 @DeleteMapping ("/{id}")
 public void delete(@PathVariable long id) {
-repository.deleteById(null);
+repository.deleteById(id);
 }
 
 	
