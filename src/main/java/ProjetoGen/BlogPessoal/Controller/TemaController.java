@@ -73,7 +73,7 @@ return repository.save(tema);
 }
 
 
-@DeleteMapping ("id/{id}")
+@DeleteMapping ("/{id}")
 public void delete(@PathVariable long id) {
 repository.deleteById(null);
 }
